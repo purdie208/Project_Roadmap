@@ -25,7 +25,11 @@
       ],
       "icon": "assets/icon.png"
     },
+    "portable": {
+      "artifactName": "Roadmap-Portable-${version}.exe"
+    },
     "nsis": {
+      "artifactName": "Roadmap-Setup-${version}.exe",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true

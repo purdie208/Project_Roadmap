@@ -1,0 +1,61 @@
+name: Build and release
+
+# Push a tag like v0.2.0 to build the Windows installer and portable exe and
+# publish them as a GitHub Release. "Run workflow" on the Actions tab builds
+# the same files without releasing (download them from the run's Artifacts).
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Check tag matches package.json version
+        if: startsWith(github.ref, 'refs/tags/')
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          if ("v$version" -ne "${{ github.ref_name }}") {
+            Write-Error "Tag ${{ github.ref_name }} does not match package.json version $version. Update the version in package.json first."
+            exit 1
+          }
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Make sure the Electron binary is downloaded
+        run: node node_modules/electron/install.js
+
+      - name: Build
+        run: npx electron-builder --win --publish never
+
+      - name: Upload build files
+        uses: actions/upload-artifact@v4
+        with:
+          name: roadmap-windows
+          path: |
+            dist/*.exe
+            dist/*.blockmap
+          if-no-files-found: error
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/Roadmap-Setup-*.exe
+            dist/Roadmap-Portable-*.exe
+          generate_release_notes: true

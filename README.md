@@ -46,8 +46,18 @@ npm run dist
 ```
 
 This writes two files to `dist/`:
-- `Roadmap Setup x.y.z.exe`: an installer with Start menu and desktop shortcuts. The "start at sign-in" setting only works in the installed app.
-- `Roadmap x.y.z.exe`: a portable single file.
+- `Roadmap-Setup-x.y.z.exe`: an installer with Start menu and desktop shortcuts. The "start at sign-in" setting only works in the installed app.
+- `Roadmap-Portable-x.y.z.exe`: a portable single file.
+
+## Release on GitHub
+
+GitHub Actions builds both files and publishes the release for you (see `.github/workflows/release.yml`):
+
+1. Change `"version"` in `package.json` (for example to `0.2.0`), then commit and push.
+2. Create a tag that matches with a `v` in front (`v0.2.0`) and push the tag.
+3. After a few minutes the release appears under **Releases** with both `.exe` files and auto-generated notes.
+
+If the tag and the `package.json` version don't match, the build stops with an error. To build without publishing a release, open **Actions → Build and release → Run workflow** and download the files from the run's **Artifacts**.
 
 ## Features
 
