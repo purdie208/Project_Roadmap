@@ -53,9 +53,9 @@ This writes two files to `dist/`:
 
 GitHub Actions builds both files and publishes the release for you (see `.github/workflows/release.yml`):
 
-1. Change `"version"` in `package.json` (for example to `0.2.0`), then commit and push.
+1. Change `"version"` in `package.json` (for example to `0.2.0`). Optionally write release notes in `docs/release-notes/v0.2.0.md`. Then commit and push.
 2. Create a tag that matches with a `v` in front (`v0.2.0`) and push the tag.
-3. After a few minutes the release appears under **Releases** with both `.exe` files and auto-generated notes.
+3. After a few minutes the release appears under **Releases** with both `.exe` files. Its description is your notes file (if there is one), followed by GitHub's auto-generated list of changes.
 
 If the tag and the `package.json` version don't match, the build stops with an error. To build without publishing a release, open **Actions → Build and release → Run workflow** and download the files from the run's **Artifacts**.
 
