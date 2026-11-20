@@ -2,6 +2,34 @@
 
 A personal, offline roadmap for Windows. Use it to jot down ideas and features for your projects and follow them from idea to done.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/board-dark.png">
+  <img alt="Board view with cards grouped by status" src="docs/screenshots/board-light.png">
+</picture>
+
+## Screenshots
+
+**Item editor:** status, priority, color, deadline and reminder, tags, notes, checklist and attached images.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/editor-dark.png">
+  <img alt="Item editor panel" src="docs/screenshots/editor-light.png">
+</picture>
+
+**Calendar:** drag items to another day to change their deadline.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/calendar-dark.png">
+  <img alt="Calendar view" src="docs/screenshots/calendar-light.png">
+</picture>
+
+**Upcoming:** deadlines across every project, grouped by when they're due.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/upcoming-dark.png">
+  <img alt="Upcoming deadlines view" src="docs/screenshots/upcoming-light.png">
+</picture>
+
 ## Run it
 
 ```powershell
