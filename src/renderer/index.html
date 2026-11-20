@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' file: rmimg: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Roadmap</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">
+        <img src="../../assets/icon.png" alt="">
+        <span>Roadmap</span>
+      </div>
+      <div class="search-box">
+        <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="search" type="search" placeholder="Search everything" spellcheck="false">
+        <kbd>Ctrl F</kbd>
+      </div>
+      <nav id="nav"></nav>
+      <div class="sidebar-foot">
+        <button class="nav-item" id="open-settings">
+          <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+          <span class="name">Settings</span>
+        </button>
+      </div>
+    </aside>
+    <main id="main">
+      <header id="topbar"></header>
+      <section id="content"></section>
+    </main>
+    <aside id="drawer" hidden></aside>
+  </div>
+  <div id="modal-root"></div>
+  <div id="menu-root"></div>
+  <div id="toast-root"></div>
+  <div id="lightbox" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
